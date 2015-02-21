@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+		 
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.autentia</groupId>
+	<artifactId>mockitoExample</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>mockito</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<!-- Propiedad para encoding independiente de plataforma -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Versión del codigo fuente Java -->
+		<source.version>1.6</source.version>
+		<!-- Versión para compilacion/ejecución Java -->
+		<target.version>1.6</target.version>
+		<!-- Version para maven-compiler-plugin -->
+		<compiler.version>3.1</compiler.version>
+		<!-- Version para el maven-surefire-plugin -->
+		<surefire.version>2.12.2</surefire.version>
+		<!-- Version de SLF4J -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<!-- Version de LogBack -->
+		<logback.version>1.0.13</logback.version>
+		<!-- Version de Groovy -->
+		<groovy.version>2.1.9</groovy.version>
+		<!-- Version de JUnit -->
+		<junit.version>4.11</junit.version>
+		<!-- Version de Surefire JUnit -->
+		<surefirejunit.version>2.6</surefirejunit.version>
+		<!-- Version de Mockito -->
+		<mockito.version>1.6</mockito.version>
+	</properties>
+	  
+	<build>
+       <finalName>mockito</finalName>
+       <plugins>
+           <plugin>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>${compiler.version}</version>
+               <configuration>
+	          <source>${source.version}</source>
+	          <target>${target.version}</target>
+	        </configuration>
+           </plugin>
+        <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-surefire-plugin</artifactId>
+	        <configuration>
+	          <skipTests>false</skipTests>
+	          <source>${source.version}</source>
+	          <target>${target.version}</target>
+	        </configuration>
+	        <version>${surefire.version}</version>
+	        <dependencies>
+		      <dependency>
+				<groupId>org.apache.maven.surefire</groupId>
+				<artifactId>surefire-junit</artifactId>
+				<version>${surefirejunit.version}</version>
+			  </dependency>
+		    </dependencies>	        
+	      </plugin>
+       </plugins>
+   </build>
+	
+	<dependencies>
+		<!--
+        ########## SLF4J para LogBack ##########
+		-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<!--
+        ########## LogBack ##########
+		-->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		
+		<!--
+        ########## Groovy ##########
+		-->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
+		</dependency>
+		
+		<!--
+        ########## JUnit ##########
+		-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!--
+        ########## JUnit ##########
+		-->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+	</dependencies>
+</project>
